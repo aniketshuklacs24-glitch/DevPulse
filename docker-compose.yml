@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: devpulse-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: devpulse
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    container_name: devpulse-backend
+    restart: always
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/devpulse
+      - NODE_ENV=development
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    container_name: devpulse-frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_WS_URL=http://localhost:3001
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
