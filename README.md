@@ -88,13 +88,3 @@ This spins up PostgreSQL, the backend WebSocket server, and the React client con
 3.  Access the frontend in your browser at: [http://localhost:3000](http://localhost:3000).
 
 ---
-
-## 📝 Portfolio CV / Resume Bullet Points
-
-Add these bullet points to your resume to highlight the engineering complexity of this project:
-
-*   **Designed and built** a real-time collaborative PR review platform ("DevPulse") using **React 19**, **Node.js/Express**, and **Socket.io** to enable instant peer code line annotations synced via WebSockets.
-*   **Architected a dual-engine database layer** supporting **PostgreSQL** in containerized environments and a file-system fallback to ensure zero-friction, zero-configuration local runs.
-*   **Engineered interactive Git analytics metrics** using **Recharts**, graphing telemetry such as Average Time to Merge, code volume profiles, and files modified pulled from persistent databases.
-*   **Containerized application** using **Docker Compose** multi-stage pipelines to orchestrate client, server, and relational database services.
-*   **Developed resilient API handlers** with automatic mock-fallback interceptors to bypass GitHub REST API rate limits and network latency.
